@@ -15,17 +15,15 @@ FCop is a PowerShell module that will let you deploy only detected changes from 
       - Save filecache
 
 ### Version
-none
+none yet
 
 ### Tech
 
-Dillinger uses a number of open source projects to work properly:
-
-* [X] - x
+* [edtFTPnet/Free] -  the popular free .NET FTP library
 
 License
 ----
 
 MIT
 
-   [X]: <http://angularjs.org>
+   [edtFTPnet/Free]: <http://enterprisedt.com/products/edtftpnet/>
