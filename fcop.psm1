@@ -29,32 +29,46 @@ function Install-Fcop {
      $commands = $c.fcop._runtime.Commands.Command
     [void]$c.Save($c.fcop._runtime.ResolvedRuntimeFilePath)
 
-    Write-Host ""
-    Write-Host ""
-    Write-Host ($commands.Length.ToString() + " FTP Commands need to be executed")
-    Write-Host (($commands | where {$_.Type -eq "UPLOAD"}).Length.ToString() + " file uploads")
-    Write-Host (($commands | where {$_.Type -eq "MKD"}).Length.ToString() + " folders to be created")
-    Write-Host ""
-    Write-Host "  Choose an action   " -ForegroundColor Yellow -BackgroundColor Black
-    Write-Host ""
+    if ($commands) {
+        if ($commands.GetType().Name -eq "XmlElement") {
+            $commands = @($commands)
+        }
 
-    Write-Host "Action: [" -NoNewline
-    Write-Host "D" -ForegroundColor Yellow -NoNewline
-    Write-Host "]eploy / [S]ave updated filecache / [V]iew commands"
+        Write-Host ""
+        Write-Host ""
+        Write-Host ($commands.Length.ToString() + " FTP Commands need to be executed")
+        $uploads = $commands | where {$_.Type -eq "UPLOAD"}
+        if ($uploads -and $uploads.Length) {
+            Write-Host ($uploads.Length.ToString() + " file uploads")
+        }
+        $dirs = $commands | where {$_.Type -eq "MKD"}
+        if ($dirs -and $dirs.Length) {
+            Write-Host ($dirs.Length.ToString() + " folders to be created")
+        }
+        Write-Host ""
+        Write-Host "  Choose an action   " -ForegroundColor Yellow -BackgroundColor Black
+        Write-Host ""
+
+        Write-Host "Action: [" -NoNewline
+        Write-Host "D" -ForegroundColor Yellow -NoNewline
+        Write-Host "]eploy / [S]ave updated filecache / [V]iew commands"
     
-    $key = [Console]::ReadKey($true)
+        $key = [Console]::ReadKey($true)
+    
+        Write-Host ("You choose " + $key.key) -ForegroundColor Cyan
 
-    Write-Host ("You choose " + $key) -ForegroundColor Cyan
+    } else {
+        Write-Host "No changes"
+        $key = "_"
+    }
 
-    return
-
+   
 
     # Here, the FTP connection has been closed. We'll need to open it again later
 #    foreach(
 
-if (1-eq 1) {
+if ($key -eq "D") {
     $ftp = Connect-FCopFtp -Cfg $c
-
 
     $a = 0
 
@@ -92,13 +106,15 @@ if (1-eq 1) {
 
     Complete-FCopTask $t
 
-    }
-
+    
     $t = Start-FCopTask ("Saving updated filecache" + $filecache_path)
     $filecache = [xml]"<?xml version='1.0' encoding='utf-8'?>"
     $filecache.AppendChild( $filecache.ImportNode($c.fcop._runtime.filecache, $true) ) 
     $filecache.Save($c.fcop._runtime.ResolvedFilecachePath)
     Complete-FCopTask $t
+
+    }
+
 
    
     
@@ -175,6 +191,17 @@ function Initialize-FCopConfig {
 
     Set-Variable -Name "FcopCfg" -Scope Global -Value $xmlCfg
 
+
+    $d = get-content $filecache_path -ErrorAction SilentlyContinue
+    if ($d) {
+        $cached = [xml]$d
+        $cachedNode = $xmlCfg.CreateElement("cached")
+        [void]$cachedNode.AppendChild($xmlCfg.ImportNode( $cached.DocumentElement, $true ))
+        [void]$xmlCfg.fcop._runtime.AppendChild($cachedNode)
+    }
+
+    #Write-Host "Oh, got cached content" -ForegroundColor Yellow -BackgroundColor Black
+    #Write-Host $d
    
     #   Read-Host "wait for it"
 
@@ -407,6 +434,41 @@ function Connect-FCopFtp {
 }
 
 
+function New-FCopUploadCommandElement {
+     param(
+    [Parameter(Mandatory=$true)]
+    [System.Xml.XmlDocument]$Cfg,
+    [Parameter(Mandatory=$true)]
+    [System.Xml.XmlNode]$file,
+    [Parameter(Mandatory=$true)]
+    [System.Xml.XmlNode]$folder,
+    [Parameter(Mandatory=$true)]
+    [string]$reason,
+    [Parameter(Mandatory=$true)]
+    [ValidateSet('UPLOAD','DELETE')]
+    [string]$type
+    )
+    
+    $i = $file.SourcePath.LastIndexOf("\")
+    $SourceFolderPathOnly = $file.SourcePath.Substring(0, $i)
+
+    $cmdNode = $Cfg.CreateElement("Command")
+    $cmdNode.SetAttribute("Type", $type)
+    $cmdNode.SetAttribute("Source", (Join-Path (Join-Path $Cfg.fcop._runtime.ResolvedSourceFolder $folder.SourcePath) $file.SourcePath)   )
+                 
+    $finalTargetFolder = $Cfg.fcop._runtime.ResolvedTargetFolder 
+    if ($SourceFolderPathOnly) {
+     $finalTargetFolder = Join-Path $finalTargetFolder (Join-Path $folder.TargetPath $SourceFolderPathOnly)
+    } else {
+     $finalTargetFolder = Join-Path $finalTargetFolder $folder.TargetPath
+    }
+
+    $finalTargetFolder = $finalTargetFolder.Replace("\", "/")
+
+    $cmdNode.SetAttribute("Target", $finalTargetFolder)
+    $cmdNode.SetAttribute("Reason", $reason)
+    return $cmdNode
+}
 
 function Resolve-FCopChanges {
     param(
@@ -416,51 +478,77 @@ function Resolve-FCopChanges {
 
     $fnTask = Start-FCopTask "Resolving changes"
 
-    $cached = $Cfg.fcop._runtime.cached
+    $cached = $Cfg.fcop._runtime.cached.filecache
 
     if (-not $cached) {
         Write-FCopInfo "Ok, no previous cache. Create empty element then"
         $cached = $Cfg.CreateElement("cached")
         [void]$Cfg.fcop._runtime.appendChild($cached)
-    }
-    
+    } 
     $commands = $Cfg.CreateElement("Commands")
+
+    $addCommands = @()
 
     foreach($folder in $Cfg.fcop._runtime.filecache.ChildNodes) {
         $cachedFolder = $cached.folder | where { $_.SourcePath -eq $folder.SourcePath } 
         if (-not $cachedFolder) {
             foreach($file in $folder.ChildNodes) {
-                
-                $i = $file.SourcePath.LastIndexOf("\")
-                $SourceFolderPathOnly = $file.SourcePath.Substring(0, $i)
-
-                $cmdNode = $Cfg.CreateElement("Command")
-                $cmdNode.SetAttribute("Type", "UPLOAD")
-#                $cmdNode.SetAttribute("SourcePath",   $file.SourcePath)
-               # $cmdNode.SetAttribute("xx",   $SourceFolderPath)
-                $cmdNode.SetAttribute("Source", (Join-Path (Join-Path $Cfg.fcop._runtime.ResolvedSourceFolder $folder.SourcePath) $file.SourcePath)   )
-                 
-               $finalTargetFolder = $Cfg.fcop._runtime.ResolvedTargetFolder 
-               if ($SourceFolderPathOnly) {
-                $finalTargetFolder = Join-Path $finalTargetFolder (Join-Path $folder.TargetPath $SourceFolderPathOnly)
-               } else {
-                $finalTargetFolder = Join-Path $finalTargetFolder $folder.TargetPath
-               }
-
-                $finalTargetFolder = $finalTargetFolder.Replace("\", "/")
-
-               #$finalTargetFolder = (Join-Path $Cfg.fcop._runtime.ResolvedTargetFolder  (Join-Path $SourceFolderPathOnly $folder.TargetPath))
-
-                
-               # $cmdNode.SetAttribute("Source", (Join-Path $Cfg.fcop._runtime.ResolvedSourceFolder $folder.SourcePath))
-                $cmdNode.SetAttribute("Target", $finalTargetFolder)
+                $cmdNode = New-FCopUploadCommandElement -Cfg $Cfg -file $file -folder $folder -reason "New" -type "UPLOAD"
                 [void]$commands.appendChild($cmdNode)
             }
         } else {
-            throw "Not implemented if a folder is in cache"
+
+            # Go through all local files and see if any hash has changed
+            $f2 = Start-FCopTask ("Checking changed and new files " +$folder.SourcePath)
+            foreach($file in $folder.ChildNodes) {
+                $sourcepath = $file.SourcePath
+               # $f2 = Start-FCopTask "ps style"
+                $cachedFile = $cachedFolder.file | where { $_.SourcePath -eq $sourcepath } | select -First 1
+               # Complete-FCopTask $f2
+
+                #$f2 = Start-FCopTask "selectnodes style"
+                #$cachedFile = $cachedFolder.SelectSingleNode("file[@SourcePath='" + $sourcepath + "']")
+               # Complete-FCopTask $f2
+
+
+                if ($cachedFile) {
+                    if ($file.Hash -ne $cachedFile.Hash) {
+                        $cmdNode = New-FCopUploadCommandElement -Cfg $Cfg -file $file -folder $folder -reason "Changed" -type "UPLOAD"
+                   #     [void]$commands.appendChild($cmdNode)
+                        $addCommands+=$cmdNode
+                    }
+                } else {
+                    $cmdNode = New-FCopUploadCommandElement -Cfg $Cfg -file $file -folder $folder -reason "New" -type "UPLOAD"
+                        $addCommands+=$cmdNode
+                  #  [void]$commands.appendChild($cmdNode)
+                }
+            }
+            Complete-FCopTask $f2
+
+           # $f2 = Start-FCopTask "Checking deleted files"
+            foreach($file in $cachedFolder.ChildNodes) {
+                $sourcepath = $file.SourcePath
+                $existingfile = $folder.file | where { $_.SourcePath -eq $sourcepath }| select -First 1
+                if (-not $existingfile) {
+                    $cmdNode = New-FCopUploadCommandElement -Cfg $Cfg -file $file -folder $folder -reason "Deleted" -type "DELETE"
+                    $addCommands+=$cmdNode
+                   # [void]$commands.appendChild($cmdNode)
+                }
+            }
+           # Complete-FCopTask $f2
+
         }
     }
+
+    # $f2 = Start-FCopTask "Adding to XML"
+    foreach($cmd in $addCommands) {
+        $commands.AppendChild($cmd)
+    }
+    # Complete-FCopTask $f2
+
     $Cfg.fcop._runtime.appendChild($commands)
+    $Cfg.Save("C:\git\CogFramework\Deploy\temp.xml")
+   # throw "x"
     Complete-FCopTask $fnTask
 
     return $commands

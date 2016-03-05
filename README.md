@@ -14,6 +14,8 @@ FCop is a PowerShell module that will let you deploy only detected changes from 
       - Execute FTP command list
       - Save filecache
 
+The core function will compare the local filesystem with the filecache XML data. This operation will be very fast and based on detected changes the FTP commands needed for a deploy will be resolved.
+
 ### Version
 none yet
 
