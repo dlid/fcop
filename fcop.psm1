@@ -36,6 +36,9 @@ function Install-Fcop {
     [void]$c.Save($c.fcop._runtime.ResolvedRuntimeFilePath)
 
     if ($commands) {
+
+        Clear-CommandConflicts -Cfg $c
+
         if ($commands.GetType().Name -eq "XmlElement") {
             $commands = @($commands)
         }
@@ -123,12 +126,9 @@ if ($key.key -eq "D") {
                 }
             }
         } elseif ($command.Type -eq "UPLOAD") {
-                Write-Progress -Activity $taskName -PercentComplete $a -CurrentOperation "$a% complete" ` -Status ("Uploading file " + (Split-Path $Command.Source -Leaf))
-            $target = $Command.Target
-            $target += "/" + (Split-Path $Command.Source -Leaf)
-
+            Write-Progress -Activity $taskName -PercentComplete $a -CurrentOperation "$a% complete" ` -Status ("Uploading file " + (Split-Path $Command.ResolvedTargetFullPath -Leaf))
             try {
-                $ftp.UploadFile($Command.Source, $target)
+                $ftp.UploadFile($command.Source,  $command.ResolvedTargetFullPath)
             } catch {
                 $success = $false
                 throw
@@ -181,6 +181,64 @@ if ($key.key -eq "D") {
 
 }
 
+#
+# Will make sure no files are deleted AND uploaded
+# In that case - the DELETE's will be removed
+#
+function Clear-CommandConflicts {
+    param(
+    [Parameter(Mandatory=$true)]
+    [System.Xml.XmlDocument]$Cfg)
+
+    $f = Start-FCopTask "Cleaning up command conflicts"
+
+    $commands = $Cfg.fcop._runtime.Commands.ChildNodes | where {$_.LocalName -eq "Command"}
+    foreach($cmd in $commands) {
+        if ($cmd.Type -eq "UPLOAD") {
+            $cmd.SetAttribute("ResolvedTargetFullPath", (Get-FCopCommandTargetFilename -Command $cmd))
+        } elseif ($cmd.Type -eq "DELETE") {
+            $cmd.SetAttribute("ResolvedTargetFullPath", $cmd.Target)
+        }
+    }
+
+    $deleted = 0
+
+    foreach($cmd in $commands) {
+        if ($cmd.Type -eq "UPLOAD") {
+            $alsoDelete = $commands | where { $_.Type -eq "DELETE" -and $_.ResolvedTargetFullPath -eq $cmd.ResolvedTargetFullPath }
+            if ($alsoDelete) {
+                foreach($delChild in $alsoDelete) {
+                    $delChild.ParentNode.RemoveChild($delChild)
+                     $deleted++
+                }                
+            }
+        }        
+    }
+
+    if ($deleted -gt 0) {
+        Write-FCopInfo ($deleted.ToString() + " commands removed")
+    }
+
+    Complete-FCopTask $f
+
+
+
+   
+
+}
+
+function Get-FCopCommandTargetFilename {
+    param(
+    [Parameter(Mandatory=$true)]
+    [System.Xml.XmlElement]$Command)
+
+    $filename = split-path $command.Source -Leaf
+    if ($command.TargetFilename) { $filename = $command.TargetFilename }
+    $target = Join-Path $Command.Target $filename
+    $target = $target.Replace("\", "/")
+
+    return $target
+}
 
 #
 # Setup the runtine configuration XML that is used in the session
@@ -215,10 +273,8 @@ function Write-FCopCommandSummary{
 
             switch($cmd.Type) {
                 "UPLOAD" {
-                    $target = $cmd.Target
-                    $filename = split-path $cmd.Source -Leaf
-                    $target = Join-Path $target $filename
-                   Write-Host $target -ForegroundColor Gray
+                   Write-Host $cmd.Source"" -NoNewline
+                   Write-Host $cmd.ResolvedTargetFullPath -ForegroundColor Green
                 }
                 "DELETE" {
                     Write-Host $cmd.Target -ForegroundColor Gray
@@ -590,6 +646,9 @@ function New-FCopUploadCommandElement {
     $finalTargetFolder = $finalTargetFolder.Replace("\", "/")
 
     $cmdNode.SetAttribute("Target", $finalTargetFolder)
+    if ($file.TargetFilename) {
+        $cmdNode.SetAttribute("TargetFilename", $file.TargetFilename)
+    }
     $cmdNode.SetAttribute("Reason", $reason)
     return $cmdNode
 }
@@ -612,7 +671,8 @@ function Convert-FCopFilecacheXmlToHashtable {
             $fileItem = @{
                 Bytes = $file.Bytes;
                 Hash = $file.Hash;
-                SourcePath = $file.SourcePath
+                SourcePath = $file.SourcePath;
+                TargetFilename = $file.TargetFilename
             }    
             $filesHashtable.Add($file.SourcePath, $fileItem)
         }
@@ -740,21 +800,32 @@ function New-FCopFilecache {
             $ignoredFiles = 0
             Write-FCopInfo ("Processing " + $localpath)
             foreach(  $fileo in $files) {
+                $isIgnored = $false
                 [System.IO.FileInfo]$file = $fileo
                 #$folderToMatch = $file.DirectoryName.Substring($localpath.Length)
                 $sourcePath = $file.FullName.Substring($localpath.Length)
               #  Write-Host $cmd.ChildNodes.Length
+                #Write-Host $sourcePath
+                $rename = $false
                 if ($cmd.HasChildNodes) {
                     foreach($ignored in $cmd.ChildNodes) {
                         if ($ignored.LocalName -eq "Ignore") {
+
                             if ($sourcePath -match $ignored.InnerText) {
                                 $ignoredFiles ++
-                                #Write-Host "IGNORE " $sourcePath
-                                continue;
+                                $isIgnored = $true
+                            }
+                        } elseif ($ignored.LocalName -eq "Rename") {
+                            if ($sourcePath -match $ignored.SourcePath) {
+                                Write-Host ("UPLOAD "+$sourcePath+" as "+$ignored.NewName)
+                                $rename = $ignored.NewName
+                                break
                             }
                         }
                     }
                 }
+
+                if($isIgnored) { continue }
                 $filecount++
 
                 $fileHash = Get-FileHash $file.FullName -Algorithm MD5
@@ -763,6 +834,11 @@ function New-FCopFilecache {
                 $fileNode.SetAttribute("SourcePath", $sourcePath )
                 $fileNode.SetAttribute("Bytes", $file.Length)
                 $fileNode.SetAttribute("Hash", $fileHash.Hash)
+
+                if ($rename) {
+                    $fileNode.SetAttribute("TargetFilename", $rename)
+                }
+
                 $totalbytes += $file.Length
                 #$fileNode.SetAttribute("Folder", $file.)
                 [void]$folderNode.appendChild($fileNode)
