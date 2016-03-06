@@ -42,11 +42,18 @@ function Install-Fcop {
         Write-Host ($commands.Length.ToString() + " FTP Commands need to be executed")
         $uploads = $commands | where {$_.Type -eq "UPLOAD"}
         if ($uploads -and $uploads.Length) {
+            if (-not $uploads.Length) {$uploads = @($uploads)}
             Write-Host ($uploads.Length.ToString() + " file uploads")
-        }
+        } 
         $dirs = $commands | where {$_.Type -eq "MKD"}
-        if ($dirs -and $dirs.Length) {
+        if ($dirs) {
+            if (-not $dirs.Length) {$dirs = @($del)}
             Write-Host ($dirs.Length.ToString() + " folders to be created")
+        }
+        $del = $commands | where {$_.Type -eq "DELETE"}
+        if ($del ) {
+            if (-not $del.Length) {$del = @($del)}
+            Write-Host ($del.Length.ToString() + " file(s) to be deleted")
         }
         Write-Host ""
         Write-Host "  Choose an action   " -ForegroundColor Yellow -BackgroundColor Black
