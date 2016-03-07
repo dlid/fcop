@@ -824,7 +824,6 @@ function New-FCopFilecache {
                             }
                         } elseif ($ignored.LocalName -eq "Rename") {
                             if ($sourcePath -match $ignored.SourcePath) {
-                                Write-Host ("UPLOAD "+$sourcePath+" as "+$ignored.NewName)
                                 $rename = $ignored.NewName
                                 break
                             }
