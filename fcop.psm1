@@ -14,8 +14,8 @@ function Install-Fcop {
     )
 
    
-    if ((Get-Host).Version.Major -lt 3) {
-        throw "This module requires PowerShell version 3.0 or higher"
+    if ((Get-Host).Version.Major -lt 4) {
+        throw "This module requires PowerShell version 4.0 or higher"
     }
     
 
@@ -872,9 +872,19 @@ function Get-TcopFileHash {
     [string]$File
     )
 
+    $hash = Get-FileHash $File -Algorithm SHA256
+
+    return $hash.Hash
+
     $sha = new-object System.Security.Cryptography.SHA256Managed
     $stream = New-Object System.IO.FileStream($File, [System.IO.FileMode]::Open, [System.IO.FileAccess]::Read)
-    $checksum = $sha.ComputeHash($stream);
+    [System.IO.BinaryReader]$br = new-object System.IO.BinaryReader($stream);
+    $numBytes = (new-object System.IO.FileInfo($File)).Length
+    $buff = $br.ReadBytes($numBytes);
+    $ss = new-object System.IO.MemoryStream($buff)
+    $checksum = $sha.ComputeHash($ss);
+    Write-host $checksum
+    Read-Host
     return [System.BitConverter]::ToString($checksum).Replace("-", "");
 
 #     using (FileStream stream = File.OpenRead(file))
