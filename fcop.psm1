@@ -865,19 +865,32 @@ function New-FCopFilecache {
 }
 
 
+
 function Get-TcopFileHash {
      param(
     [Parameter(Mandatory=$true)]
     [string]$File
     )
 
-    $algorithm = [System.Security.Cryptography.HashAlgorithm]::Create("SHA256")
+    $sha = new-object System.Security.Cryptography.SHA256Managed
     $stream = New-Object System.IO.FileStream($File, [System.IO.FileMode]::Open, [System.IO.FileAccess]::Read)
-    $md5StringBuilder = New-Object System.Text.StringBuilder
-    $algorithm.ComputeHash($stream) | % { [void] $md5StringBuilder.Append($_.ToString("x2")) }
-    $hash = $md5StringBuilder.ToString()
-    $stream.Dispose()
-    return $hash.ToUpper()
+    $checksum = $sha.ComputeHash($stream);
+    return [System.BitConverter]::ToString($checksum).Replace("-", "");
+
+#     using (FileStream stream = File.OpenRead(file))
+ #           {
+  #              var sha = new SHA256Managed();
+   #             byte[] checksum = sha.ComputeHash(stream);
+    #            return BitConverter.ToString(checksum).Replace("-", String.Empty);
+     #       }
+
+#    $algorithm = [System.Security.Cryptography.HashAlgorithm]::Create("SHA256")
+ #   $stream = New-Object System.IO.FileStream($File, [System.IO.FileMode]::Open, [System.IO.FileAccess]::Read)
+  #  $md5StringBuilder = New-Object System.Text.StringBuilder
+   # $algorithm.ComputeHash($stream) | % { [void] $md5StringBuilder.Append($_.ToString("x2")) }
+   # $hash = $md5StringBuilder.ToString()
+   # $stream.Dispose()
+    #return $hash.ToUpper()
 }
 
 
