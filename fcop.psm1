@@ -9,8 +9,9 @@ function Install-Fcop {
         [Parameter(Mandatory=$false)]
         [int]$PreviewCount = 10
     )
-    
-    if ((Get-Host).Major -lt 3) {
+
+   
+    if ((Get-Host).Version.Major -lt 3) {
         throw "This module requires PowerShell version 3.0 or higher"
     }
     
@@ -427,7 +428,8 @@ function Resolve-FCopFTPChanges {
         foreach($folder in $uniqueTargetFolders ) {
             if (-not $ftp.DirectoryExists($folder)) {
                 $others = $uniqueTargetFolders | where { $_.StartsWith($folder) }
-                Write-FCopInfo ("MKD '" + $folder + "' (" + $others.Length + " subfolders)") 
+                if ($others.GetType().Name -eq "String") { $others = @($others) }
+                Write-FCopInfo ("MKD '" + $folder + "' (" + ($others.Length -1).ToString() + " subfolders)") 
                 $mdirs+=$others
                 $x = $uniqueTargetFolders | where { -not $_.StartsWith($folder) }
                 $uniqueTargetFolders = $x
@@ -833,12 +835,11 @@ function New-FCopFilecache {
                 if($isIgnored) { continue }
                 $filecount++
 
-                $fileHash = Get-FileHash $file.FullName -Algorithm MD5
+                $fileHash = Get-TcopFileHash -File $file.FullName
                 $fileNode = [System.XML.XMLElement]$Cfg.CreateElement("file")
-               
                 $fileNode.SetAttribute("SourcePath", $sourcePath )
                 $fileNode.SetAttribute("Bytes", $file.Length)
-                $fileNode.SetAttribute("Hash", $fileHash.Hash)
+                $fileNode.SetAttribute("Hash", $fileHash)
 
                 if ($rename) {
                     $fileNode.SetAttribute("TargetFilename", $rename)
@@ -860,6 +861,23 @@ function New-FCopFilecache {
 
 
 }
+
+
+function Get-TcopFileHash {
+     param(
+    [Parameter(Mandatory=$true)]
+    [string]$File
+    )
+
+    $algorithm = [System.Security.Cryptography.HashAlgorithm]::Create("MD5")
+    $stream = New-Object System.IO.FileStream($File, [System.IO.FileMode]::Open, [System.IO.FileAccess]::Read)
+    $md5StringBuilder = New-Object System.Text.StringBuilder
+    $algorithm.ComputeHash($stream) | % { [void] $md5StringBuilder.Append($_.ToString("x2")) }
+    $hash = $md5StringBuilder.ToString()
+    $stream.Dispose()
+    return $hash.ToUpper()
+}
+
 
 Function Format-Bytes() {
 [cmdletbinding()]
