@@ -9,6 +9,11 @@ function Install-Fcop {
         [Parameter(Mandatory=$false)]
         [int]$PreviewCount = 10
     )
+    
+    if ((Get-Host).Major -lt 3) {
+        throw "This module requires PowerShell version 3.0 or higher"
+    }
+    
 
     $global:taskdepth = 0
     $global:fcop = @{
