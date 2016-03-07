@@ -1,6 +1,9 @@
-﻿$path = Split-Path $script:MyInvocation.MyCommand.Path
+﻿#
+# FCOP V1.0 <http://github.com/dlid/fcop>
+#
+#
+$path = Split-Path $script:MyInvocation.MyCommand.Path
 [Reflection.Assembly]::LoadFile($path + "\bin\edtFTPnet.dll")
-
 
 function Install-Fcop {
     param (
