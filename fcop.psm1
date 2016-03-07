@@ -871,7 +871,7 @@ function Get-TcopFileHash {
     [string]$File
     )
 
-    $algorithm = [System.Security.Cryptography.HashAlgorithm]::Create("MD5")
+    $algorithm = [System.Security.Cryptography.HashAlgorithm]::Create("SHA256")
     $stream = New-Object System.IO.FileStream($File, [System.IO.FileMode]::Open, [System.IO.FileAccess]::Read)
     $md5StringBuilder = New-Object System.Text.StringBuilder
     $algorithm.ComputeHash($stream) | % { [void] $md5StringBuilder.Append($_.ToString("x2")) }
