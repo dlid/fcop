@@ -312,7 +312,8 @@ function Initialize-FCopConfig {
     [string]$Config)
 
     $resolvedPath = Resolve-path $Config
-    #Write-Host $resolvedPath -ForegroundColor Yellow
+    $configfolder = (Split-Path $resolvedPath -Parent)
+    
     $cc = Get-Content $resolvedPath
     if (-not $cc) {
         throw "Config content was empty"
@@ -323,8 +324,9 @@ function Initialize-FCopConfig {
     $sourceFolder = ($xmlCfg.fcop.Source | where { $_.Type -eq "File" }).InnerText
     $target = ($xmlCfg.fcop.Target | where { $_.Type -eq "FTP" })
     $targetFolder = $target.Path
-   
-    # Write-Host $targetFolder -ForegroundColor Cyan
+    $theRoot = Resolve-Path (Join-Path $configfolder $xmlCfg.fcop.Source.InnerText)
+
+    # Write-Host $theRoot -ForegroundColor Cyan
 
     if (-not $targetFolder.EndsWith("/")) {
         $targetFolder += "/"
@@ -337,12 +339,15 @@ function Initialize-FCopConfig {
     }
 
 
+
+   # Write-host $theRoot -ForegroundColor red
+   # Read-Host
  
     $runtimeElement = $xmlCfg.CreateElement("_runtime")
     [void]$xmlCfg.DocumentElement.AppendChild($runtimeElement)
 
     $elm1 = $xmlCfg.CreateElement("ResolvedSourceFolder")
-    [void]$elm1.AppendChild( $xmlCfg.CreateTextNode($sourceFolder))
+    [void]$elm1.AppendChild( $xmlCfg.CreateTextNode($theRoot))
     [void]$runtimeElement.AppendChild( $elm1 )
 
     $elm2 = $xmlCfg.CreateElement("ResolvedTargetFolder")
@@ -354,7 +359,6 @@ function Initialize-FCopConfig {
     [void]$runtimeElement.AppendChild( $elm )
 
 
-    $configfolder = (Split-Path $resolvedPath -Parent)
     $filename = [io.path]::GetFileNameWithoutExtension($resolvedPath)
     $filecache_path = (Join-Path $configfolder ($filename  + ".fcopcache"))
     $runtime_path = (Join-Path $configfolder ($filename  + ".runtime.xml"))
@@ -629,18 +633,45 @@ function New-FCopUploadCommandElement {
     )
     
     $i = $file.SourcePath.LastIndexOf("\")
-    $SourceFolderPathOnly = $file.SourcePath.Substring(0, $i)
+    
+    if ($i -gt -1) {
+        $SourceFolderPathOnly = $file.SourcePath.Substring(0, $i)
+    } else {
+        $SourceFolderPathOnly = ""
+    }
+
     $folderTargetPath = $folder["fcop://TargetPath"]
     $folderSourcePath = $folder["fcop://SourcePath"]
 
+    if ($folderSourcePath -eq ".") {
+        $folderSourcePath = ""
+    }
+
+    if ($folderTargetPath -eq ".") {
+        $folderTargetPath = $null
+    }
+
     $cmdNode = $Cfg.CreateElement("Command")
     $cmdNode.SetAttribute("Type", $type)
+
+   #$Cfg.fcop._runtime
+
     $cmdNode.SetAttribute("Source", (Join-Path (Join-Path $Cfg.fcop._runtime.ResolvedSourceFolder $folderSourcePath) $file.SourcePath)   )
                  
     $finalTargetFolder = $Cfg.fcop._runtime.ResolvedTargetFolder 
     if ($SourceFolderPathOnly) {
-     $finalTargetFolder = Join-Path $finalTargetFolder (Join-Path $folderTargetPath $SourceFolderPathOnly)
+        if ($folderTargetPath) {
+            $tp = (Join-Path $folderTargetPath $SourceFolderPathOnly)
+        } else {
+            $tp = $SourceFolderPathOnly
+        }
+
+
+
+     $finalTargetFolder = Join-Path $finalTargetFolder $tp
     } else {
+       # Write-Host $finalTargetFolder -ForegroundColor green
+       # write-host $folderTargetPath -ForegroundColor red
      $finalTargetFolder = Join-Path $finalTargetFolder $folderTargetPath
     }
 
@@ -654,6 +685,7 @@ function New-FCopUploadCommandElement {
     }
 
     $finalTargetFolder = $finalTargetFolder.Replace("\", "/")
+    $finalTargetFolder = $finalTargetFolder -creplace "/{2,}", "/"
 
     $cmdNode.SetAttribute("Target", $finalTargetFolder)
     if ($file.TargetFilename) {
@@ -795,6 +827,17 @@ function New-FCopFilecache {
         if ($cmd.LocalName -eq "Copy") {
             $sourceFolder = $Cfg.fcop._runtime.ResolvedSourceFolder
             $localpath = (join-path $sourceFolder $cmd.SourcePath)
+
+            if ($cmd.SourcePath -eq ".") {
+                $localpath = $sourceFolder
+                if ($sourceFolder.Substring(0,1) -eq "\") {
+                    $localpath = $sourceFolder.Substring(1)
+                }
+                if (-not $localpath.EndsWith("\")) {
+                    $localpath += "\"
+                }
+            }
+
             $files = Get-ChildItem  -Path $localpath -Recurse -ErrorAction SilentlyContinue -File
             [System.XML.XMLElement]$folderNode=$filecacheRoot.appendChild($Cfg.CreateElement("folder"))
             
@@ -809,11 +852,15 @@ function New-FCopFilecache {
             $n = 0
             $ignoredFiles = 0
             Write-FCopInfo ("Processing " + $localpath)
+
             foreach(  $fileo in $files) {
                 $isIgnored = $false
                 [System.IO.FileInfo]$file = $fileo
                 #$folderToMatch = $file.DirectoryName.Substring($localpath.Length)
+                #write-host  $localpath -ForegroundColor green
                 $sourcePath = $file.FullName.Substring($localpath.Length)
+             #   Write-Host $file.FullName -ForegroundColor cyan
+             #   write-host $localpath -ForegroundColor blue
               #  Write-Host $cmd.ChildNodes.Length
                 #Write-Host $sourcePath
                 $rename = $false

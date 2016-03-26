@@ -1,0 +1,1981 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"folter",
+				"folderTargetPath"
+			],
+			[
+				"sourcefo",
+				"sourceFolder"
+			],
+			[
+				"fore",
+				"ForegroundColor"
+			],
+			[
+				"mobile",
+				"mobileoverlay"
+			],
+			[
+				"filter",
+				"filterData"
+			],
+			[
+				"filte",
+				"$filterData〔variable〕"
+			],
+			[
+				"tags",
+				"$tagsById〔variable〕"
+			],
+			[
+				"isBat",
+				"isBatchTwo"
+			],
+			[
+				"err",
+				"error"
+			],
+			[
+				"file_",
+				"file_put_contents"
+			],
+			[
+				"lang",
+				"$lang〔variable〕"
+			],
+			[
+				"filer",
+				"$filter〔variable〕"
+			],
+			[
+				"ensure",
+				"ensurePost"
+			],
+			[
+				"pub",
+				"published"
+			],
+			[
+				"tagsby",
+				"$tagsBySlug〔variable〕"
+			],
+			[
+				"backg",
+				"background-color"
+			],
+			[
+				"impl",
+				"implode〔function〕"
+			],
+			[
+				"blog_post",
+				"blog_post_tag"
+			],
+			[
+				"GetUrl",
+				"GetUrlWithoutMonth"
+			],
+			[
+				"getTag",
+				"getTagSlugs"
+			],
+			[
+				"pb",
+				"publishedQuery"
+			],
+			[
+				"update",
+				"updateDialogResultDeferred"
+			],
+			[
+				"atta",
+				"attachEvent"
+			],
+			[
+				"conro",
+				"controllerName"
+			],
+			[
+				"_",
+				"_controllerPaths"
+			],
+			[
+				"flash",
+				"flashBase"
+			],
+			[
+				"callba",
+				"callbackFn"
+			],
+			[
+				"CEle",
+				"CElements"
+			],
+			[
+				"finde",
+				"findElements"
+			],
+			[
+				"classna",
+				"className"
+			],
+			[
+				"remove",
+				"removeElementClass"
+			],
+			[
+				"re",
+				"result"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"fn",
+				"function"
+			],
+			[
+				"list-style",
+				"list-style-type"
+			],
+			[
+				"html",
+				"htmlOverflow"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"published",
+				"published"
+			],
+			[
+				"blog_",
+				"blog_post_content"
+			],
+			[
+				"DateTime",
+				"DateTimeZone"
+			],
+			[
+				"uniq",
+				"unique_key"
+			],
+			[
+				"screen",
+				"screen_w"
+			],
+			[
+				"scree",
+				"screen_w"
+			],
+			[
+				"prot",
+				"prototype"
+			],
+			[
+				"flas",
+				"flashBase"
+			],
+			[
+				"DAteti",
+				"DateTimeZone"
+			],
+			[
+				"rememberme",
+				"rememberme_token"
+			],
+			[
+				"prev_",
+				"previous_context_id"
+			],
+			[
+				"useragent",
+				"useragent_screen_id"
+			],
+			[
+				"auth_",
+				"auth_useragent_screen"
+			],
+			[
+				"user_a",
+				"useragent_id"
+			],
+			[
+				"remember",
+				"rememberme_token"
+			],
+			[
+				"meta_",
+				"meta_keywords"
+			],
+			[
+				"u",
+				"uiToolbar"
+			],
+			[
+				"contet",
+				"contentType"
+			],
+			[
+				"allo",
+				"allowedHost"
+			],
+			[
+				"context",
+				"contextId"
+			],
+			[
+				"decr",
+				"decrypted"
+			],
+			[
+				"scre",
+				"screen_h"
+			],
+			[
+				"rand",
+				"randomMessage"
+			],
+			[
+				"ex",
+				"extract"
+			],
+			[
+				"vra",
+				"variations"
+			],
+			[
+				"ob_",
+				"ob_get_level"
+			],
+			[
+				"dir",
+				"dirname"
+			],
+			[
+				"mai",
+				"magicNumber"
+			],
+			[
+				"getE",
+				"getLastError"
+			],
+			[
+				"instal",
+				"installList"
+			],
+			[
+				"defined_",
+				"get_defined_vars"
+			],
+			[
+				"ob_l",
+				"ob_get_level"
+			],
+			[
+				"render",
+				"renderInclusionTemplate"
+			],
+			[
+				"meta",
+				"metadataFile"
+			],
+			[
+				"lastModif",
+				"_lastModified"
+			],
+			[
+				"fun",
+				"func_get_args"
+			],
+			[
+				"implode",
+				"implode"
+			],
+			[
+				"str_repla",
+				"str_replace"
+			],
+			[
+				"str_repl",
+				"substr_replace"
+			],
+			[
+				"getS",
+				"getSiteUrl"
+			],
+			[
+				"dispa",
+				"dispatch"
+			],
+			[
+				"optionsor",
+				"optionsOrFilename"
+			],
+			[
+				"acti",
+				"activeFiltersHtml"
+			],
+			[
+				"act",
+				"activeFiltersHtml"
+			],
+			[
+				"af",
+				"activeFiltersHtml"
+			],
+			[
+				"ac",
+				"activeFiltersHtml"
+			],
+			[
+				"current",
+				"currentFilter"
+			],
+			[
+				"tag",
+				"tagSql"
+			],
+			[
+				"array",
+				"array_fill"
+			],
+			[
+				"article-list-i",
+				"article-list-image"
+			],
+			[
+				"item-hover",
+				"item-hover-effect"
+			],
+			[
+				"fon",
+				"fontSizeH1"
+			],
+			[
+				"list-sty",
+				"list-style-type"
+			],
+			[
+				"im",
+				"important"
+			],
+			[
+				"file-hover-",
+				"file-hover-info"
+			],
+			[
+				"filebrow",
+				"filebrowser-file-thumb"
+			],
+			[
+				"backgro",
+				"backgroundColor"
+			],
+			[
+				"temp",
+				"tempFilePath"
+			],
+			[
+				"isNU",
+				"is_numeric"
+			],
+			[
+				"param",
+				"parameters"
+			],
+			[
+				"clearti",
+				"clearTimer"
+			],
+			[
+				"unblo",
+				"unblockAll"
+			],
+			[
+				"func",
+				"function"
+			],
+			[
+				"vers",
+				"versions"
+			],
+			[
+				"func_get",
+				"func_get_args"
+			],
+			[
+				"htm",
+				"html_entity_decode"
+			],
+			[
+				"exp",
+				"explode"
+			],
+			[
+				"download",
+				"downloadCarpaAB"
+			],
+			[
+				"body",
+				"body-bg"
+			],
+			[
+				"version",
+				"versionRegex"
+			],
+			[
+				"slug",
+				"slugSql"
+			],
+			[
+				"actionControllerin",
+				"actionControllerIndex"
+			],
+			[
+				"content",
+				"content_data"
+			],
+			[
+				"assets",
+				"assetPaths"
+			],
+			[
+				"asse",
+				"assetPaths"
+			],
+			[
+				"min",
+				"minify"
+			],
+			[
+				"redire",
+				"redirectUrl"
+			],
+			[
+				"backgr",
+				"background-image"
+			],
+			[
+				"error",
+				"error_get_last"
+			],
+			[
+				"contne",
+				"contentType"
+			],
+			[
+				"findmsg",
+				"findMsgElement"
+			],
+			[
+				"valjsgete",
+				"valjsGetEventNames"
+			],
+			[
+				"dataname",
+				"dataNameValJsHash"
+			],
+			[
+				"data",
+				"dataNameValJsRules"
+			],
+			[
+				"valjstestele",
+				"valjsTestIsElementReadyForValidation"
+			],
+			[
+				"valjsget",
+				"valjsGetAttr"
+			],
+			[
+				"elemetncla",
+				"elementClassNames"
+			],
+			[
+				"valjsinvoke",
+				"valjsInvokeElementValidation"
+			],
+			[
+				"valjsset",
+				"valjsSetFormContext"
+			],
+			[
+				"refresh",
+				"valjsRefreshField"
+			],
+			[
+				"j5h",
+				"j5hash"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "fcop.psm1",
+			"settings":
+			{
+				"buffer_size": 35059,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/git/atyourservice/Fcop-Atyourservice.xml",
+			"settings":
+			{
+				"buffer_size": 485,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": ".gitignore",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/git/atyourservice/.gitignore",
+			"settings":
+			{
+				"buffer_size": 122,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/git/CogFramework/Deploy/Cog-TEST.xml",
+			"settings":
+			{
+				"buffer_size": 796,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"inndent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"html p",
+				"HTMLPrettify"
+			],
+			[
+				"indent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"json",
+				"Indent JSON"
+			],
+			[
+				"xml",
+				"Indent XML"
+			],
+			[
+				"pretty",
+				"HTMLPrettify"
+			],
+			[
+				"idnent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"project",
+				"Project: Add Folder"
+			],
+			[
+				"emmet",
+				"Emmet: Expand Abbreviation"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"encode",
+				"HTML: Encode Special Characters"
+			],
+			[
+				"htmlsp",
+				"HTML: Encode Special Characters"
+			],
+			[
+				"html",
+				"HTML: Encode Special Characters"
+			],
+			[
+				"htmlen",
+				"HTML: Encode Special Characters"
+			],
+			[
+				"inde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"INDENT",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"indnent",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"indentn",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"indet",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"globals",
+				"Snippet: $GLOBALS['…']"
+			],
+			[
+				"tabs",
+				"Snippet: $GLOBALS['…']"
+			],
+			[
+				"tab",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"inden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"dock",
+				"DocBlockr: Decorate line comment"
+			],
+			[
+				"idn",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"inden t",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"static",
+				"Set Syntax: Objective-C"
+			],
+			[
+				"indnt",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"reindent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"block",
+				"Snippet: Start Docblock"
+			],
+			[
+				"pack",
+				"Preferences: Package Control Settings – Default"
+			],
+			[
+				"browse",
+				"Preferences: Browse Packages"
+			],
+			[
+				"tidt",
+				"Tidy HTML"
+			],
+			[
+				"format",
+				"Format: Php"
+			],
+			[
+				"package in",
+				"Package Control: Install Package"
+			],
+			[
+				"pcka",
+				"Package Control: Remove Package"
+			],
+			[
+				"php",
+				"Tidy PHP"
+			],
+			[
+				"tidy",
+				"Tidy HTML"
+			],
+			[
+				"packages",
+				"Preferences: Browse Packages"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"lint",
+				"SublimeLinter: Extract Annotations"
+			],
+			[
+				"git",
+				"Package Control: Install Package"
+			],
+			[
+				"prett",
+				"HTMLPrettify: Prettify"
+			],
+			[
+				"pac",
+				"Package Control: List Packages"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"tid",
+				"Tidy PHP"
+			],
+			[
+				"insall",
+				"Package Control: Install Package"
+			],
+			[
+				"set",
+				"Set Syntax: Powershell v2"
+			],
+			[
+				"get",
+				"Snippet: GET['…']"
+			],
+			[
+				"lorem",
+				"Snippet: Lorem ipsum"
+			],
+			[
+				"",
+				"Snippet: Lorem ipsum"
+			],
+			[
+				"doc",
+				"Snippet: Start Docblock"
+			],
+			[
+				"disc",
+				"Package Control: Discover Packages"
+			]
+		],
+		"width": 664.0
+	},
+	"console":
+	{
+		"height": 382.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib2,os; pf='Package Control.sublime-package'; ipp=sublime.installed_packages_path(); os.makedirs(ipp) if not os.path.exists(ipp) else None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())); open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read()); print('Please restart Sublime Text to finish installation')"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/git/fcop"
+	],
+	"file_history":
+	[
+		"/C/git/CogFramework/Deploy/Cog-TEST.xml",
+		"/C/Dropbox/Program/Sublime Text/Data/Packages/User/Preferences.sublime-settings",
+		"/C/git/CogFramework/Deploy/Cog-TEST.fcopcache",
+		"/C/git/CogFramework/webroot/testar_ny_fil.txt",
+		"/C/git/CogFramework/theme/shared/js/ng/components/filebrowser/filebrowser-controller.js",
+		"/C/git/CogFramework/src/File/FileApiController.php",
+		"/C/git/CogFramework/theme/shared/js/ng/components/filebrowser/filebrowser.js.php",
+		"/C/git/CogFramework/theme/shared/js/ng/components/filebrowser/filebrowser-edit-image.html",
+		"/C/git/CogFramework/theme/shared/css/partials/dropdown.less",
+		"/C/git/CogFramework/theme/shared/js/di/components/di-CDropdownMenu.js",
+		"/C/git/CogFramework/theme/shared/css/partials/blogfilters.less",
+		"/C/git/CogFramework/theme/shared/js/ng/components/filebrowser/filebrowser-edit-image-controller.js",
+		"/C/git/CogFramework/theme/shared/js/ng/components/filebrowser/filebrowser-file-upload-controller.js",
+		"/C/git/CogFramework/src/File/CFile.php",
+		"/C/git/CogFramework/src/Files/FileAssetController.php",
+		"/C/git/CogFramework/theme/shared/js/lib/filedrop/filedrop-min.js",
+		"/C/git/CogFramework/app/config/files_config.php",
+		"/C/git/CogFramework/src/jSend/CJSendResponse.php",
+		"/C/git/CogFramework/src/Exception.php",
+		"/C/git/CogFramework/app/setup/000_006.php",
+		"/C/git/CogFramework/webroot/index.php",
+		"/C/git/CogFramework/src/Blog/CBlog.php",
+		"/C/git/CogFramework/app/view/blog/edit_post.tpl.php",
+		"/C/git/CogFramework/app/view/blog/start.tpl.php",
+		"/C/git/CogFramework/theme/shared/css/partials/hamburger.less",
+		"/C/git/CogFramework/theme/shared/js/di/di-dlid.js",
+		"/C/git/CogFramework/app/view/file/browser.tpl.php",
+		"/C/git/CogFramework/app/content/upgrading.html",
+		"/C/git/CogFramework/theme/shared/css/dlid.less",
+		"/C/git/CogFramework/theme/cog-base/index.tpl.php",
+		"/C/git/CogFramework/src/Navigation/CNavigation.php",
+		"/C/git/CogFramework/src/Assets/CStylesheetAsset.php",
+		"/C/git/CogFramework/theme/shared/js/di/components/di-CBlogFilters.js",
+		"/C/git/CogFramework/theme/shared/css/partials/animate.less",
+		"/C/git/CogFramework/webroot/config.php",
+		"/C/git/CogFramework/src/ThemeEngine/CThemeBasic.php",
+		"/C/git/CogFramework/src/Assets/CAssets.php",
+		"/C/git/CogFramework/theme/shared/js/page.js",
+		"/C/git/CogFramework/theme/shared/js/dlid.js.php",
+		"/C/git/CogFramework/src/Blog/BlogApiController.php",
+		"/C/git/CogFramework/src/Blog/CBlogFilter.php",
+		"/C/git/CogFramework/src/Blog/BlogController.php",
+		"/C/git/CogFramework/.gitattributes",
+		"/C/git/CogFramework/app/view/blog/blogpost.tpl.php",
+		"/C/git/CogFramework/theme/shared/css/partials/article.less",
+		"/C/git/CogFramework/theme/shared/css/mixins/responsive/responsive-breakpoints.less",
+		"/C/git/CogFramework/src/Assets/less.php/Less.php",
+		"/C/git/CogFramework/theme/shared/js/lib/dialogr/dialogr.js",
+		"/C/git/CogFramework/temp/c_git_cogframework_theme_shared_js_lib_dialogr_dialogr.js",
+		"/C/git/CogFramework/theme/shared/js/di/di-user.js",
+		"/C/git/CogFramework/theme/shared/js/lib/di/di.js",
+		"/C/git/CogFramework/theme/shared/js/di/components/di-CDialog.js",
+		"/C/git/CogFramework/temp/c_git_cogframework_theme_shared_js_di_components_di-CDialog.js",
+		"/C/git/CogFramework/app/config/navigation_config.php",
+		"/C/git/CogFramework/theme/shared/js/ng/tmpl/filebrowser-upload-file.html",
+		"/C/git/CogFramework/src/Kernel/CCogApplication.php",
+		"/C/git/CogFramework/theme/shared/js/ng/tmpl/filebrowser-start.html",
+		"/C/git/CogFramework/theme/shared/js/user.js.php",
+		"/C/git/CogFramework/theme/shared/js/ng/shared/globalProvider/ngDlidGlobal.provider.js",
+		"/C/git/CogFramework/theme/shared/js/ng/ng-dlid-app.js",
+		"/C/git/CogFramework/theme/shared/js/ng/shared/servicesModule/ngDlidServices.module.js",
+		"/C/git/CogFramework/theme/shared/js/di/components/di-CServices.js",
+		"/C/git/CogFramework/theme/shared/js/ng/components/filebrowser/filebrowser-upload-file.html",
+		"/C/git/CogFramework/theme/shared/js/ng/components/filebrowser/filebrowser-details.html",
+		"/C/git/CogFramework/src/File/FileController.php",
+		"/C/git/CogFramework/app/view/blog/edit_content.tpl.php",
+		"/C/git/CogFramework/src/User/UserApiController.php",
+		"/C/git/CogFramework/theme/shared/js/ng/components/blog_postslug/blog_postslug-controller.js",
+		"/C/git/CogFramework/src/Tags/TagsController.php",
+		"/C/git/CogFramework/app/config/app_config.php",
+		"/C/git/CogFramework/app/view/shared/footer.tpl.php",
+		"/C/git/CogFramework/theme/shared/css/partials/tiles.less",
+		"/C/git/CogFramework/app/config/localization_config.php",
+		"/C/git/CogFramework/theme/shared/js/ng/tmpl/tile-post-tags.html",
+		"/C/git/CogFramework/theme/shared/js/ng/tmpl/filebrowser-upload-url.html",
+		"/C/git/CogFramework/app/config/error_reporting.php",
+		"/C/git/CogFramework/temp/dlid.less.cache",
+		"/C/git/CogFramework/.gitignore",
+		"/C/git/CogFramework/app/view/blog/editPostStatus.tpl.php",
+		"/C/git/CogFramework/theme/shared/js/ng/tmpl/tile-post-status.html",
+		"/C/git/CogFramework/temp/c_git_cogframework_theme_shared_js_di_components_di-CServices.js",
+		"/C/git/CogFramework/theme/shared/js/ng/components/tagstile/tagstile-controller.js",
+		"/C/git/CogFramework/theme/shared/js/ng/components/blog_poststatus/blog_poststatus-controller.js",
+		"/C/git/CogFramework/theme/shared/js/ng/components/tagdialog/tagdialog-controller.js",
+		"/C/git/CogFramework/src/Database/CDatabaseBasic.php",
+		"/C/git/CogFramework/app/view/user/start.tpl.php",
+		"/C/git/CogFramework/src/User/UserController.php",
+		"/C/git/CogFramework/app/view/user/login.tpl.php",
+		"/C/git/CogFramework/app/setup/000_001.php",
+		"/C/git/CogFramework/app/config/router_config.php",
+		"/C/git/CogFramework/src/Url/CUrl.php",
+		"/C/git/CogFramework/src/Route/CRouterBasic.php",
+		"/C/git/CogFramework/src/Request/CRequestBasic.php",
+		"/C/git/CogFramework/app/view/default/start.tpl.php",
+		"/C/git/CogFramework/theme/shared/js/ng/tmpl/tile-post-content.html",
+		"/C/git/CogFramework/theme/shared/css/partials/button.less",
+		"/C/git/CogFramework/src/Assets/CScriptAsset.php",
+		"/C/git/CogFramework/src/Assets/GeneralAssetController.php",
+		"/C/git/CogFramework/src/Assets/CGeneralAsset.php",
+		"/C/git/CogFramework/app/config/assets_config.php",
+		"/C/git/CogFramework/theme/shared/js/ng/components/dlid/dlid-root-controller.js",
+		"/C/git/CogFramework/theme/shared/js/ng/components/tagdialog/tagdialog.js.php",
+		"/C/git/CogFramework/app/view/layout/start.tpl.php",
+		"/C/git/CogFramework/theme/shared/css/mixins/grid.less",
+		"/C/git/CogFramework/theme/shared/css/partials/page-content.less",
+		"/C/git/CogFramework/theme/shared/css/vendor/dialogr/dialogr.less",
+		"/C/git/CogFramework/theme/shared/css/partials/table.less",
+		"/C/git/CogFramework/src/Tags/TagsApiController.php",
+		"/C/git/CogFramework/app/setup/000_005.php",
+		"/C/git/CogFramework/app/view/tags/selectTags.tpl.php",
+		"/C/git/CogFramework/app/view/blog/editPostSlug.tpl.php",
+		"/C/git/CogFramework/theme/shared/js/ng/components/blog_postslug/blog_postslug.js.php",
+		"/C/git/CogFramework/theme/shared/js/ng/components/blog_poststatus/blog_poststatus.js.php",
+		"/C/git/CogFramework/src/Tags/CTags.php",
+		"/C/git/CogFramework/theme/shared/js/di/components/di-CGlobalJavascriptEvents.js",
+		"/C/git/CogFramework/src/Localization/CLocalization.php",
+		"/C/git/CogFramework/src/View/CViewBasic.php",
+		"/C/Dropbox/Dokument/IFTTT/Withings/new_body_scale_measurement.txt",
+		"/C/git/CogFramework/src/functions.php",
+		"/C/Users/David/Downloads/filebank_files.sql",
+		"/C/git/CogFramework/theme/shared/js/lib/di/IInjectionAware.js",
+		"/C/git/CogFramework/theme/shared/js/pages/page-blog-EditBlogContent.js",
+		"/C/git/CogFramework/theme/shared/js/pages/initialize-tinymce.js",
+		"/C/git/CogFramework/theme/shared/js/_old/dlid/user/tinymce.js",
+		"/C/git/CogFramework/theme/shared/js/ng/pages/ng-blog-edit-post.js.php",
+		"/C/git/CogFramework/theme/shared/js/pages/login.js.php",
+		"/C/git/CogFramework/theme/shared/js/_old/dlid/pages/dlid.pages.blog_edit_post.js",
+		"/C/git/CogFramework/theme/shared/js/reboot/dlid/components/di-CServices.js"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"C:\\git\\CogFramework\\",
+			"C:\\git\\CogFramework\\kartserver\\_oldserver",
+			"C:\\git\\CogFramework\\",
+			"C:\\git\\CogFramework\\theme\\shared\\css",
+			"C:\\Dropbox\\Github\\ames\\ames",
+			"C:\\git\\CogFramework",
+			"<open folders>",
+			"C:\\Dropbox\\xampp-1.8.2\\apache\\conf",
+			"C:\\Dropbox\\Inetpub\\www.dlid.se\\private_code",
+			"C:\\Dropbox\\Inetpub\\www.dlid.se",
+			"E:\\Dropbox\\Inetpub\\www.dlid.se",
+			"<open files>,D:\\Dropbox\\Inetpub\\dlid.se\\",
+			"<open files>,D:\\Dropbox\\Inetpub\\dlid.se\\public_html\\dlid",
+			"<open files>",
+			"D:\\Dropbox\\Inetpub\\dlid.se\\public_html\\ABB\\3ColIpad",
+			"C:\\Dropbox\\Inetpub\\dlid.se\\public_html\\dlid\\*.php,<open folders>,<open files>,D:\\Dropbox\\Inetpub\\dlid.se\\public_html\\dlid\\addin",
+			"C:\\Dropbox\\Inetpub\\dlid.se\\public_html\\dlid\\*.php,<open folders>,<open files>",
+			"C:\\Dropbox\\Inetpub\\dlid.se\\public_html\\dlid\\*.php,<open folders>",
+			"C:\\Dropbox\\Inetpub\\dlid.se\\public_html\\dlid\\*.php",
+			"C:\\Dropbox\\Inetpub\\dlid.se\\public_html\\dlid,*.php",
+			"D:\\Dropbox\\Inetpub\\dev.davidlidstrom.com\\site\\classes",
+			"D:\\Dropbox\\Inetpub\\dev.davidlidstrom.com\\Material\\archive"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"FCopUploadCommandElement",
+			"resolvedsource",
+			"\"command",
+			" cyan",
+			"Ignore",
+			"command\"",
+			"Copy",
+			"innertext",
+			".sourcePath",
+			"resolvedsourcefo",
+			"resolved",
+			"3",
+			"sign",
+			"CBlogFilters",
+			"DATA",
+			"data",
+			"mime",
+			"id",
+			"width",
+			"bytes",
+			"js",
+			"js/",
+			"name",
+			"prefix",
+			"#main",
+			"--active",
+			"js-mobilenavbtn",
+			".is-active",
+			"active",
+			"button",
+			"js-mobilebtn",
+			"c-hamburger",
+			"--htx",
+			"c-hamburger",
+			"c-button",
+			"c-menu",
+			"'loading'",
+			"#main",
+			"Year",
+			"<a ",
+			"blog__count",
+			"__count",
+			"animated",
+			"tada",
+			"arrow-down",
+			"background-color",
+			"htx",
+			"backgr",
+			"8px",
+			"$",
+			"arrow-d",
+			"-tag",
+			"month",
+			"monh",
+			"tags",
+			"arrow-down",
+			"filter",
+			"rawcalc",
+			"years",
+			"inlägg",
+			"posts",
+			"url =",
+			"f",
+			"f-",
+			"f",
+			"n addJavascript",
+			"});*/\n",
+			"data dialogr",
+			"dialogr.on",
+			"user.js",
+			"dlid.js",
+			"go",
+			"go(",
+			"getAssetFiles",
+			"user.js",
+			"isReady",
+			"remove-filter",
+			"--togg",
+			"site-header",
+			".page-wrapper",
+			"esponsive-gt-small",
+			"$apply",
+			"visible-big",
+			".article-column",
+			"-->\n",
+			"gears",
+			" ng-",
+			"ng-",
+			"/*color: #fbc708;*/",
+			"session",
+			"files",
+			"pre",
+			"]);\n",
+			"success",
+			"width",
+			"width.ma",
+			"width.math",
+			"resizeDialog",
+			"\", ",
+			"[COLUMNS]",
+			"published",
+			"\"post\"",
+			"CBlogFilter",
+			"page",
+			"pages",
+			"filter-tag",
+			"tag",
+			"object",
+			"sort",
+			"Get",
+			"post_id",
+			"canBePublished",
+			"anyContentReady",
+			"set_exception_handler",
+			"getFilteredPosts",
+			"noContent",
+			"updateRefinerData",
+			"getFilteredPosts",
+			"-wrapper",
+			".new",
+			";\n",
+			"round",
+			"float:",
+			"page-content",
+			"site-header",
+			"getfilte",
+			",\n",
+			"remove-fi"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"@",
+			"../../img/",
+			"../fonts/opensans",
+			"../fonts",
+			"Standard Kart",
+			"Morton Koopa Jr",
+			"Wario",
+			"Bowser",
+			"Pink Gold Peach",
+			"Metal Mario",
+			"Link",
+			"Roy Koopa",
+			"Waluigi",
+			"Donkey Kong",
+			"Rosalina",
+			"Ludwig van Koopa",
+			"Iggy Koopa",
+			"Luigi",
+			"Mario",
+			"Tanooki Mario",
+			"Yoshi",
+			"Princess Daisy",
+			"Princess Peach",
+			"Cat Peach",
+			"Wendy O. Koopa",
+			"Larry Koopa",
+			"Toadette",
+			"Lakitu",
+			"Shy Guy",
+			"Koopa Troopa",
+			"Toad",
+			"Lemmy Koopa",
+			"Baby Rosalina",
+			"Baby Daisy",
+			"Baby Peach",
+			"Baby Luigi",
+			"",
+			"&lt;",
+			"&gt;",
+			"&lt;",
+			"\\$",
+			"del",
+			"\"",
+			"<a class=\"testclass\" ",
+			"\"SpareNumber\": \"SPARENUMBER\",",
+			"\"Price\": \"42.00\",",
+			"\"SpareNumber\": \"XXX\",",
+			"lib/js/layout/",
+			"<\\/",
+			"'",
+			"../img/colorbox/",
+			"ldscr",
+			"$this->conn",
+			"/lib/js/bootstrap/",
+			"\\\"",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "fcop.psm1",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 35059,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								21317,
+								21317
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PowerShell/Support/PowershellSyntax.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 11838.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/git/atyourservice/Fcop-Atyourservice.xml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 485,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								306,
+								347
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": ".gitignore",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/git/atyourservice/.gitignore",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 122,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								122,
+								122
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/C/git/CogFramework/Deploy/Cog-TEST.xml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 796,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								796,
+								796
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.phpdocumentor":
+	{
+		"height": 88.0
+	},
+	"pinned_build_system": "",
+	"project": "FCOP.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"tiles.le",
+				"theme\\shared\\css\\partials\\tiles.less"
+			],
+			[
+				"filebrowser-sta",
+				"theme\\shared\\js\\ng\\components\\filebrowser\\filebrowser-start.html"
+			],
+			[
+				"blogfilters",
+				"theme\\shared\\css\\partials\\blogfilters.less"
+			],
+			[
+				"cropper.",
+				"theme\\shared\\css\\vendor\\cropper\\cropper.less"
+			],
+			[
+				"filebrowser-upl",
+				"theme\\shared\\js\\ng\\components\\filebrowser\\filebrowser-upload-url.html"
+			],
+			[
+				"angular-route",
+				"theme\\shared\\js\\lib\\angular\\angular-route.js"
+			],
+			[
+				"cropper.mn",
+				"theme\\shared\\css\\vendor\\cropper\\cropper.min.css"
+			],
+			[
+				"",
+				"theme\\shared\\js\\lib\\cropper\\cropper.js"
+			],
+			[
+				"filebrowser-up",
+				"theme\\shared\\js\\ng\\components\\filebrowser\\filebrowser-upload-file.html"
+			],
+			[
+				"filebroser-edi",
+				"theme\\shared\\js\\ng\\components\\filebrowser\\filebrowser-edit-image.html"
+			],
+			[
+				"dropdown",
+				"theme\\shared\\css\\partials\\dropdown.less"
+			],
+			[
+				"cropp",
+				"theme\\shared\\js\\lib\\cropper\\cropper.js"
+			],
+			[
+				"filebrowser-de",
+				"theme\\shared\\js\\ng\\components\\filebrowser\\filebrowser-details.html"
+			],
+			[
+				"filebrowser-",
+				"theme\\shared\\js\\ng\\components\\filebrowser\\filebrowser-upload.html"
+			],
+			[
+				"cropper",
+				"theme\\shared\\js\\lib\\cropper\\cropper.min.js"
+			],
+			[
+				"animate",
+				"theme\\shared\\css\\partials\\animate.less"
+			],
+			[
+				"cblogap",
+				"src\\Blog\\BlogApiController.php"
+			],
+			[
+				"cblog",
+				"src\\Blog\\CBlog.php"
+			],
+			[
+				"services",
+				"theme\\shared\\js\\di\\components\\di-CServices.js"
+			],
+			[
+				"cfile",
+				"src\\File\\CFile.php"
+			],
+			[
+				"cfilea",
+				"src\\File\\FileApiController.php"
+			],
+			[
+				"start",
+				"app\\view\\blog\\start.tpl.php"
+			],
+			[
+				"page",
+				"theme\\shared\\js\\page.js"
+			],
+			[
+				"cass",
+				"src\\Assets\\CAssets.php"
+			],
+			[
+				"inde",
+				"theme\\cog-base\\index.tpl.php"
+			],
+			[
+				"star",
+				"app\\view\\blog\\start.tpl.php"
+			],
+			[
+				"edit",
+				"app\\view\\blog\\edit_post.tpl.php"
+			],
+			[
+				"cblogco",
+				"src\\Blog\\BlogController.php"
+			],
+			[
+				"di-cblogf",
+				"theme\\shared\\js\\di\\components\\di-CBlogFilters.js"
+			],
+			[
+				"cblogapi",
+				"src\\Blog\\BlogApiController.php"
+			],
+			[
+				"di-cblog",
+				"theme\\shared\\js\\di\\components\\di-CBlogFilters.js"
+			],
+			[
+				"index",
+				"webroot\\index.php"
+			],
+			[
+				"di-",
+				"theme\\shared\\js\\di\\di-dlid.js"
+			],
+			[
+				"con",
+				"webroot\\config.php"
+			],
+			[
+				"conf",
+				"webroot\\config.php"
+			],
+			[
+				"dia",
+				"theme\\shared\\js\\lib\\dialogr\\dialogr.js"
+			],
+			[
+				"cblogfi",
+				"src\\Blog\\CBlogFilter.php"
+			],
+			[
+				"less",
+				"src\\Assets\\less.php\\Less.php"
+			],
+			[
+				"dlid.l",
+				"theme\\shared\\css\\dlid.less"
+			],
+			[
+				"dlid.",
+				"theme\\shared\\css\\dlid.less"
+			],
+			[
+				".less",
+				"theme\\shared\\css\\dlid.less"
+			],
+			[
+				"art",
+				"theme\\shared\\css\\partials\\article.less"
+			],
+			[
+				"tiles",
+				"theme\\shared\\css\\partials\\tiles.less"
+			],
+			[
+				"d.less",
+				"theme\\shared\\css\\dlid.less"
+			],
+			[
+				"dlid.less",
+				"theme\\shared\\css\\dlid.less"
+			],
+			[
+				"di-d",
+				"theme\\shared\\js\\di\\di-dlid.js"
+			],
+			[
+				"dialogr",
+				"theme\\shared\\js\\lib\\dialogr\\dialogr.js"
+			],
+			[
+				"in",
+				"theme\\cog-base\\index.tpl.php"
+			],
+			[
+				"i",
+				"theme\\cog-base\\index.tpl.php"
+			],
+			[
+				"ind",
+				"theme\\cog-base\\index.tpl.php"
+			],
+			[
+				"article",
+				"theme\\shared\\css\\partials\\article.less"
+			],
+			[
+				"blogpost",
+				"app\\view\\blog\\blogpost.tpl.php"
+			],
+			[
+				"footer",
+				"app\\view\\shared\\footer.tpl.php"
+			],
+			[
+				"edit_",
+				"app\\view\\blog\\edit_post.tpl.php"
+			],
+			[
+				"dialog",
+				"theme\\shared\\js\\lib\\dialogr\\dialogr.js"
+			],
+			[
+				"brow",
+				"app\\view\\file\\browser.tpl.php"
+			],
+			[
+				"bro",
+				"app\\view\\file\\browser.tpl.php"
+			],
+			[
+				"cservices",
+				"theme\\shared\\js\\ng\\shared\\servicesModule\\ngDlidServices.module.js"
+			],
+			[
+				"file",
+				"src\\File\\FileController.php"
+			],
+			[
+				"dilogr",
+				"theme\\shared\\js\\lib\\dialogr\\dialogr.js"
+			],
+			[
+				"ed",
+				"app\\view\\blog\\edit_post.tpl.php"
+			],
+			[
+				"edit_post",
+				"app\\view\\blog\\edit_post.tpl.php"
+			],
+			[
+				"cuserapi",
+				"src\\User\\UserApiController.php"
+			],
+			[
+				"content",
+				"app\\view\\blog\\edit_content.tpl.php"
+			],
+			[
+				"cblogc",
+				"src\\Blog\\BlogController.php"
+			],
+			[
+				"local",
+				"app\\config\\localization_config.php"
+			],
+			[
+				"cbloga",
+				"src\\Blog\\BlogApiController.php"
+			],
+			[
+				"post",
+				"app\\view\\blog\\edit_post.tpl.php"
+			],
+			[
+				"cbl",
+				"src\\Blog\\CBlog.php"
+			],
+			[
+				"navi",
+				"app\\config\\navigation_config.php"
+			],
+			[
+				"cblogcon",
+				"src\\Blog\\BlogController.php"
+			],
+			[
+				"tagdiao",
+				"theme\\shared\\js\\ng\\components\\tagdialog\\tagdialog.js.php"
+			],
+			[
+				"cblogf",
+				"src\\Blog\\CBlogFilter.php"
+			],
+			[
+				"c",
+				"src\\Blog\\CBlog.php"
+			],
+			[
+				"bloc",
+				"src\\Blog\\BlogController.php"
+			],
+			[
+				".les",
+				"theme\\shared\\css\\dlid.less"
+			],
+			[
+				"blogco",
+				"src\\Blog\\BlogController.php"
+			],
+			[
+				"clogco",
+				"src\\Blog\\BlogController.php"
+			],
+			[
+				"dlid.le",
+				"theme\\shared\\css\\dlid.less"
+			],
+			[
+				"celement",
+				"theme\\shared\\js\\reboot\\dlid\\components\\di-CElement.js"
+			],
+			[
+				"element",
+				"theme\\shared\\js\\reboot\\dlid\\components\\di-CElement.js"
+			],
+			[
+				"generall",
+				"src\\Assets\\GeneralAssetController.php"
+			],
+			[
+				"controller.js",
+				"theme\\shared\\js\\dlid\\ng\\components\\tagstile\\tagstile-controller.js"
+			],
+			[
+				"dialo",
+				"theme\\shared\\js\\lib\\dialogr\\dialogr.js"
+			],
+			[
+				"blog",
+				"app\\view\\blog\\blogpost.tpl.php"
+			],
+			[
+				"tagapi",
+				"src\\Tags\\TagsApiController.php"
+			],
+			[
+				"cmicro",
+				"theme\\shared\\js\\dlid\\dlid.CMicrosoft.js"
+			],
+			[
+				"startup",
+				"theme\\shared\\js\\mariokart\\startup.js"
+			],
+			[
+				"user",
+				"theme\\shared\\js\\dlid\\user\\user.general.js"
+			],
+			[
+				"crea",
+				"app\\view\\blog\\create.tpl.php"
+			],
+			[
+				"userco",
+				"src\\User\\CUserContext.php"
+			],
+			[
+				"create",
+				"app\\view\\blog\\create.tpl.php"
+			],
+			[
+				"cuserin",
+				"src\\UI\\CUserInterface.php"
+			],
+			[
+				"dlid",
+				"theme\\shared\\css\\dlid.less"
+			],
+			[
+				"cblo",
+				"theme\\shared\\js\\dlid\\ui\\dlid.ui.CBlock.js"
+			],
+			[
+				"dlid.js.php",
+				"theme\\shared\\js\\dlid.js.php"
+			],
+			[
+				"blogpo",
+				"app\\view\\blog\\blogpost.tpl.php"
+			],
+			[
+				"verti",
+				"app\\content\\vertical.html"
+			],
+			[
+				"casse",
+				"src\\Assets\\CAssets.php"
+			],
+			[
+				"dispat",
+				"src\\MVC\\CDispatcherBasic.php"
+			],
+			[
+				"ccachefile",
+				"src\\Cache\\CCacheFileBasic.php"
+			],
+			[
+				"responseb",
+				"src\\Response\\CResponseBasic.php"
+			],
+			[
+				"ja",
+				"C:\\git\\CogFramework\\src\\Assets\\JavaScriptController.php"
+			],
+			[
+				"java",
+				"C:\\git\\CogFramework\\src\\Assets\\JavaScriptController.php"
+			],
+			[
+				"idy",
+				"C:\\git\\CogFramework\\src\\Route\\IDynamicRoute.php"
+			],
+			[
+				"render",
+				"theme\\render.php"
+			],
+			[
+				"header",
+				"theme\\css\\sections\\site-header.less"
+			],
+			[
+				"cadmin",
+				"controllers\\admin\\CAdminBlogController\\CAdminBlogController.php"
+			],
+			[
+				"appconfig",
+				"webroot\\.appconfig"
+			],
+			[
+				".config",
+				"webroot\\.appconfig"
+			],
+			[
+				"site",
+				"theme\\css\\sections\\site-header.less"
+			],
+			[
+				"site-head",
+				"theme\\css\\sections\\site-header.less"
+			],
+			[
+				"index.",
+				"theme\\index.tpl.php"
+			],
+			[
+				"site-hea",
+				"theme\\css\\sections\\site-header.less"
+			],
+			[
+				"controllers",
+				"ames\\src\\controller\\CControllers\\CControllers.php"
+			],
+			[
+				"select",
+				"theme\\css\\lib\\select2\\select2.less"
+			],
+			[
+				"genera",
+				"webroot\\gatherer-svc\\lib\\runkeeperAPI-master\\lib\\runkeeperAPI.class.php"
+			],
+			[
+				"repson",
+				"theme\\css\\responsive.less"
+			],
+			[
+				"variable",
+				"theme\\css\\variables.less"
+			],
+			[
+				"struc",
+				"theme\\css\\structure.less"
+			],
+			[
+				"respo",
+				"theme\\css\\responsive.less"
+			],
+			[
+				"resp",
+				"theme\\css\\responsive.less"
+			],
+			[
+				"homeco",
+				"controllers\\CHomeController\\CHomeController.php"
+			],
+			[
+				"nav",
+				"theme\\css\\_old\\bootstrap\\navbar.less"
+			],
+			[
+				"vari",
+				"theme\\css\\variables.less"
+			],
+			[
+				"ccontroller",
+				"ames\\src\\controller\\CControllers\\CControllers.php"
+			],
+			[
+				"-blog",
+				"www.dlid.se\\private_code\\plugins\\dlid-blog\\dlid-blog.php"
+			],
+			[
+				"dlid-less",
+				"www.dlid.se\\private_code\\plugins\\dlid-less\\dlid-less.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\git\\CogFramework\\Cog Framework.sublime-project"
+			],
+			[
+				"kar",
+				"C:\\Dropbox\\Inetpub\\localhost\\public_html\\kart\\kart.sublime-project"
+			],
+			[
+				"kart",
+				"C:\\Dropbox\\Inetpub\\localhost\\public_html\\kart\\kart.sublime-project"
+			],
+			[
+				"lu",
+				"C:\\Dropbox\\lunch.sublime-project"
+			],
+			[
+				"valj",
+				"C:\\Dropbox\\Project\\ValJS.sublime-workspace"
+			],
+			[
+				"valjs",
+				"C:\\Dropbox\\Project\\ValJS.sublime-workspace"
+			],
+			[
+				"val",
+				"C:\\Dropbox\\Project\\ValJS.sublime-workspace"
+			],
+			[
+				"boot",
+				"C:\\Dropbox\\Work\\Kunder\\Sandvik\\sandvik-bootstrap\\sandvik-bootstrap.sublime-project"
+			],
+			[
+				"san",
+				"C:\\Dropbox\\Work\\Kunder\\Sandvik\\sandvik-bootstrap\\sandvik-bootstrap.sublime-project"
+			],
+			[
+				"va",
+				"C:\\Dropbox\\Project\\ValJS.sublime-workspace"
+			],
+			[
+				"swc",
+				"D:\\Dropbox\\Inetpub\\swc.dlid.se\\SimpleWebCore.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 568.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 341.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
