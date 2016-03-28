@@ -22,7 +22,8 @@ function Install-Fcop {
     $global:taskdepth = 0
     $global:fcop = @{
         Commands = @();
-        PreviewCount = $PreviewCount
+        PreviewCount = $PreviewCount;
+        Start = Get-Date
     }
 
 
@@ -44,6 +45,8 @@ function Install-Fcop {
      $commands = $c.fcop._runtime.Commands.Command
     [void]$c.Save($c.fcop._runtime.ResolvedRuntimeFilePath)
 
+
+
     if ($commands) {
 
         Clear-CommandConflicts -Cfg $c
@@ -51,6 +54,12 @@ function Install-Fcop {
         if ($commands.GetType().Name -eq "XmlElement") {
             $commands = @($commands)
         }
+
+
+    $d = Get-Date
+    $ts = New-TimeSpan $global:fcop.Start $d
+
+    Write-FCopInfo ("Time elapsed: " + $ts)
 
         Write-Host ""
         Write-Host ""
@@ -90,13 +99,18 @@ function Install-Fcop {
         #Write-Host ("You choose " + $key.key) -ForegroundColor Cyan
 
     } else {
+
+        
+    $d = Get-Date
+    $ts = New-TimeSpan $global:fcop.Start $d
+
+    Write-FCopInfo ("Time elapsed: " + $ts)
         
         Write-Host ""
         Write-Host "*** No changes detected" -BackgroundColor Black -ForegroundColor Green
         Write-Host ""
         $key = "_"
     }
-
    
 
     # Here, the FTP connection has been closed. We'll need to open it again later
@@ -146,7 +160,9 @@ if ($key.key -eq "D") {
         } elseif ($command.Type -eq "DELETE") {
             Write-Progress -Activity $taskName -PercentComplete $a -CurrentOperation "$a% complete" ` -Status ("Deleting file " + (Split-Path $Command.Target -Leaf))
             try {
-                $ftp.DeleteFile($Command.Target)
+                if (-not $ftp.DeleteFile($Command.Target)) {
+                    Write-FCopInfo ("Could not delete " + $Command.Target)
+                }
             } catch {
                 $success = $false
                 throw
@@ -945,9 +961,10 @@ function Start-FCopTask {
     $callstack = Get-PSCallStack
 
     if (-not $global:taskdepth) { $global:taskdepth = 0}
-    $global:taskdepth ++
     $indent = " " * $global:taskdepth
-    Write-Host ("[START] " + $indent) -ForegroundColor Yellow -NoNewline
+    $global:taskdepth ++
+    $actionText = Get-FcopActionPaddedString "PROCESSING"
+    Write-Host ($actionText + $indent) -ForegroundColor Yellow -NoNewline
     Write-Host $Title -ForegroundColor White -NoNewline
     Write-Host (" " + $callstack[1].FunctionName + " " + $callstack[1].Location) -ForegroundColor DarkGray
     
@@ -971,13 +988,23 @@ function Stop-FCopTask {
     $duration = New-TimeSpan -Start $Token.StartTime -End $now
     $indent = " " * $global:taskdepth
 
-    Write-Host "[FAIL ] "$indent -ForegroundColor Red -NoNewline
+    $actionText = Get-FcopActionPaddedString "FAIL"
+
+    Write-Host ($actionText + $indent) -ForegroundColor Red -NoNewline
     Write-Host $Token.Title -ForegroundColor White -NoNewline
     Write-Host " (" -NoNewline
     Write-Host $duration.ToString() -ForegroundColor DarkGray -NoNewline
     Write-Host ")"
 
 
+}
+
+function Get-FcopActionPaddedString {
+    param(
+    [Parameter(Mandatory=$true)]
+    [string]$Text
+    )
+    return $Text.PadRight(14, " ")
 }
 
 function Write-FCopInfo {
@@ -987,8 +1014,9 @@ function Write-FCopInfo {
     )
 
     $indent = " " * $global:taskdepth
+    $actionText = Get-FcopActionPaddedString "INFORMATION"
 
-    Write-Host "[INFO ] "$indent -ForegroundColor Cyan -NoNewline
+    Write-Host ($actionText + $indent) -ForegroundColor Gray -NoNewline
     Write-Host $Text -ForegroundColor White
 
 
@@ -1004,7 +1032,9 @@ function Complete-FCopTask {
     $now = Get-Date
     $duration = New-TimeSpan -Start $Token.StartTime -End $now
     $indent = " " * $global:taskdepth
-    Write-Host "[STOP ] "$indent -ForegroundColor Green -NoNewline
+    $actionText = Get-FcopActionPaddedString "COMPLETED"
+
+    Write-Host ($actionText + $indent) -ForegroundColor Green -NoNewline
     Write-Host $Token.Title -ForegroundColor White -NoNewline
     Write-Host " (" -NoNewline
     Write-Host $duration.ToString() -ForegroundColor DarkGray -NoNewline
