@@ -25,7 +25,7 @@ namespace Fcop.Forms
 
         private void FcopDefinitionEditor_Load(object sender, EventArgs e)
         {
-
+            var sp = TargetManager.GetScanProcessors();
             var targets = TargetManager.GetTargets();
 
 
@@ -43,10 +43,10 @@ namespace Fcop.Forms
                     ctrl.Visible = false;
                 }
 
-
             imageListMainTree.Images.Add("commands", Properties.Resources.Serial_Tasks_32px);
             imageListMainTree.Images.Add("target", Properties.Resources.Upload_To_FTP_32px);
             imageListMainTree.Images.Add("source", Properties.Resources.Open_Folder_32px);
+            imageListMainTree.Images.Add("filescan", Properties.Resources.SSD_32px);
             treeViewMain.ImageList = imageListMainTree;
 
             var node = new TreeNode();
@@ -64,7 +64,14 @@ namespace Fcop.Forms
             treeViewMain.Nodes.Add(node);
 
             node = new TreeNode();
-            node.Text = "Commands";
+            node.Text = "Files";
+            node.ImageKey = "filescan";
+            node.SelectedImageKey = node.ImageKey;
+            node.Tag = panel_PageCommands;
+            treeViewMain.Nodes.Add(node);
+
+            node = new TreeNode();
+            node.Text = "Deploy Sequence";
             node.ImageKey = "commands";
             node.SelectedImageKey = node.ImageKey;
             node.Tag = panel_PageCommands;
@@ -106,19 +113,29 @@ namespace Fcop.Forms
 
                 var cmds = TargetManager.GetCommands(tt);
                 toolStripDropDownButtonAddCommand.DropDownItems.Clear();
+
+                var n = new ToolStripMenuItem
+                {
+                    Text = "Add File Scan",
+                    ToolTipText = "",
+                    Image = Properties.Resources.View_File_16px
+                };
+                toolStripDropDownButtonAddCommand.DropDownItems.Add(n);
+
                 foreach (var cmd in cmds)
                 {
-                    var n = new ToolStripMenuItem
+                    n = new ToolStripMenuItem
                     {
-                        Text = "Add '" + cmd.Name + "' Command",
+                        Text = "Add '" + cmd.Name + "' "+ (cmd is Fcop.Core.FileCommandBase ? "File Processor " : "") + "Command",
                         ToolTipText = cmd.Description,
-                        Image = (cmd is Fcop.Core.FileCommandBase ? Properties.Resources.Repeat_16px : null)
+                        Image = (cmd is Fcop.Core.FileCommandBase ? Properties.Resources.Repeat_16px : null),
+                        Enabled = (cmd is Fcop.Core.FileCommandBase ? false : true)
                     };
                     n.Click += N_Click;
                         toolStripDropDownButtonAddCommand.DropDownItems.Add(n);
                 }
             }
-            MessageBox.Show( _definition.Serialize() );
+          //  MessageBox.Show( _definition.Serialize() );
 
         }
 

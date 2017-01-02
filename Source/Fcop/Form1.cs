@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Fcop.Core.Extensions;
 
 namespace Fcop
 {
@@ -23,6 +24,16 @@ namespace Fcop
             {
                 dlg.ShowDialog();
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            var d = new List<string>
+            {
+                "apa",
+                "kossa"
+            };
+           // MessageBox.Show(d.Serialize());
         }
     }
 }

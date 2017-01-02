@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Fcop.Core.Targets
 {
-    public class FcopFTPTarget : ITarget
+    public class FcopFTPTarget : TargetBase, ITarget
     {
         public string Description
         {

@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace Fcop.Core.Commands
 {
-    [CommandTarget("Fcop.Core.Targets.FcopFTPTarget")]
-    public class FTPUploadCommand : FileCommandBase, ICommand
+    [CommandTarget(Any: true)]
+    public class IgnoreFileCommand : FileCommandBase, ICommand
     {
 
         public string Description
         {
             get
             {
-                return "Upload or delete a file from FTP server";
+                return "Rename matching file(s)";
             }
         }
 
@@ -23,20 +23,13 @@ namespace Fcop.Core.Commands
         {
             get
             {
-                return "FTP Transfer";
+                return "File rename";
             }
         }
 
         public void ExecuteCommand(CommandArguments Args)
         {
-
-            if (Args.IsNewFile || Args.IsUpdatedFile)
-            {
-
-            } else if (Args.IsDeleteFile)
-            {
-
-            }
+            Args.TargetPath = "mhm";
         }
     }
 

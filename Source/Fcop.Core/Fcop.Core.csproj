@@ -47,11 +47,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\CommandTargetAttribute.cs" />
+    <Compile Include="Commands\IgnoreFileCommand.cs" />
+    <Compile Include="IScanProcessor.cs" />
+    <Compile Include="ScanProcessors\IgnoreProcessor.cs" />
+    <Compile Include="ScanProcessors\RenameProcessor.cs" />
     <Compile Include="Commands\WebRequestCommand.cs" />
     <Compile Include="Commands\FTPUploadCommand.cs" />
     <Compile Include="Entities\FcopDefinition.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="IFileCommand.cs" />
+    <Compile Include="PropertyBag.cs" />
+    <Compile Include="TargetBase.cs" />
     <Compile Include="TargetManager.cs" />
     <Compile Include="CommandArguments.cs" />
     <Compile Include="ICommand.cs" />

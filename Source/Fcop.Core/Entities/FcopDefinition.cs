@@ -23,7 +23,7 @@ namespace Fcop.Core.Entities
         public List<ICommand> Commands { get; set; }
 
 
-        public void Serialize()
+        public string Serialize()
         {
             var sb = new StringBuilder();
 
@@ -31,13 +31,29 @@ namespace Fcop.Core.Entities
             {
                 using (var doc = XmlWriter.Create(tw))
                 {
-                    doc.WriteStartElement("x");
+                    doc.WriteProcessingInstruction("xml", "version=\"1.0\" encoding=\"utf-8\"");
+                    doc.WriteStartElement("FtpChangedFilesOnlyPlease");
+
+                    doc.WriteStartElement("Target");
+                    //doc.WriteAttributeString("Type", this.Target.GetType().FullName);
+                    doc.WriteEndElement();
 
                     doc.WriteEndElement();
                 }
             }
 
+            return sb.ToString();
+
         }
 
     }
+
+    public class FcopShallowDefinition
+    {
+
+
+    }
+
+    
+
 }

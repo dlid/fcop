@@ -13,6 +13,7 @@ namespace Fcop.Core
     {
         private static List<ITarget> _loadedTargets = null;
         private static List<ICommand> _loadedCommands = null;
+        private static List<IScanProcessor> _loadedScanProcessors = null;
         private static Dictionary<string, List<string>> _targetCommands = new Dictionary<string, List<string>>();
         private static object nspace;
 
@@ -20,7 +21,7 @@ namespace Fcop.Core
         {
             var ret = new List<Type>();
             var q = from t in Assembly.GetExecutingAssembly().GetTypes()
-                    where t.IsClass && t.Namespace == "Fcop.Core.Targets" && typeof(ITarget).IsAssignableFrom(t)
+                    where t.IsClass && t.Namespace == "Fcop.Core.Targets" && typeof(ITarget).IsAssignableFrom(t) && typeof(TargetBase).IsAssignableFrom(t)
                     select t;
 
             q.ToList().ForEach(t => ret.Add(t));
@@ -41,10 +42,38 @@ namespace Fcop.Core
             return ret;
         }
 
+        public static List<Type> GetScanProcessorTypes()
+        {
+            var ret = new List<Type>();
+
+            var q = from t in Assembly.GetExecutingAssembly().GetTypes()
+                    where t.IsClass && t.Namespace == "Fcop.Core.ScanProcessors" && typeof(IScanProcessor).IsAssignableFrom(t)
+                    select t;
+
+            q.ToList().ForEach(t => ret.Add(t));
+
+            return ret;
+        }
+
         public static List<ITarget> GetTargets()
         {
             LoadTargets();
             return _loadedTargets.OrderBy(x => x.Name).ToList();
+        }
+
+        private static void LoadScanProcessors()
+        {
+            if (_loadedScanProcessors != null)
+                return;
+
+            _loadedScanProcessors = new List<IScanProcessor>();
+            var types = GetScanProcessorTypes();
+
+            foreach (var targetType in types)
+            {
+                var targetInstance = (IScanProcessor)Activator.CreateInstance(targetType);
+                _loadedScanProcessors.Add(targetInstance);
+            }
         }
 
         private static void LoadTargets()
@@ -128,6 +157,14 @@ namespace Fcop.Core
             LoadCommands();
             return _loadedCommands
                 .Where(x => _targetCommands.ContainsKey(TargetType.FullName) && _targetCommands[TargetType.FullName].Contains(x.GetType().FullName))
+                .OrderBy(x => x.Name)
+                .ToList();
+        }
+
+        public static List<IScanProcessor> GetScanProcessors()
+        {
+            LoadScanProcessors();
+            return _loadedScanProcessors
                 .OrderBy(x => x.Name)
                 .ToList();
         }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Fcop.Core.Targets
 {
-    public class FcopFilesystemTarget : ITarget
+    public class FcopFilesystemTarget : TargetBase, ITarget
     {
         public string Description
         {
@@ -35,7 +35,7 @@ namespace Fcop.Core.Targets
 
         public void AfterScan()
         {
-
+            
         }
 
         public void AfterScan(List<ICommand> Commands)
