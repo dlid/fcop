@@ -1,0 +1,6 @@
+C:\git\fcop\Source\Fcop.Core\bin\Debug\Fcop.Core.dll
+C:\git\fcop\Source\Fcop.Core\bin\Debug\Fcop.Core.pdb
+C:\git\fcop\Source\Fcop.Core\obj\Debug\Fcop.Core.csprojResolveAssemblyReference.cache
+C:\git\fcop\Source\Fcop.Core\obj\Debug\Fcop.Core.dll
+C:\git\fcop\Source\Fcop.Core\obj\Debug\Fcop.Core.pdb
+C:\git\fcop\Source\Fcop.Core\bin\Debug\edtftpnet-1.2.2.dll

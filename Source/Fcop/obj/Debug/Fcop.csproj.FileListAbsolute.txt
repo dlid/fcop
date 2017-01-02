@@ -1,0 +1,16 @@
+C:\git\fcop\Fcop\Fcop\bin\Debug\Fcop.exe.config
+C:\git\fcop\Source\Fcop\bin\Debug\Fcop.exe.config
+C:\git\fcop\Source\Fcop\bin\Debug\Fcop.exe
+C:\git\fcop\Source\Fcop\bin\Debug\Fcop.pdb
+C:\git\fcop\Source\Fcop\bin\Debug\Fcop.Core.dll
+C:\git\fcop\Source\Fcop\bin\Debug\Fcop.Core.pdb
+C:\git\fcop\Source\Fcop\obj\Debug\Fcop.csprojResolveAssemblyReference.cache
+C:\git\fcop\Source\Fcop\obj\Debug\Fcop.Form1.resources
+C:\git\fcop\Source\Fcop\obj\Debug\Fcop.Properties.Resources.resources
+C:\git\fcop\Source\Fcop\obj\Debug\Fcop.csproj.GenerateResource.Cache
+C:\git\fcop\Source\Fcop\obj\Debug\Fcop.exe
+C:\git\fcop\Source\Fcop\obj\Debug\Fcop.pdb
+C:\git\fcop\Source\Fcop\obj\Debug\Fcop.Forms.FcopDefinitionEditor.resources
+C:\git\fcop\Source\Fcop\bin\Debug\ObjectListView.dll
+C:\git\fcop\Source\Fcop\bin\Debug\ObjectListView.xml
+C:\git\fcop\Source\Fcop\obj\Debug\Fcop.Forms.CommandEditor.resources
