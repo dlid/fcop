@@ -33,6 +33,8 @@ namespace Fcop.Forms
             foreach (var target in targets)
                 comboBoxTargetType.Items.Add(target.Name);
 
+            
+
             if (comboBoxTargetType.Items.Count > 0)
                 comboBoxTargetType.SelectedIndex = 0;
 
@@ -50,28 +52,28 @@ namespace Fcop.Forms
             treeViewMain.ImageList = imageListMainTree;
 
             var node = new TreeNode();
-            node.Text = "Source";
+            node.Text = "1. Source";
             node.ImageKey = "source";
             node.Tag = panel_PageSource;
             node.SelectedImageKey = node.ImageKey;
             treeViewMain.Nodes.Add(node);
 
             node = new TreeNode();
-            node.Text = "Target";
+            node.Text = "2. Target";
             node.ImageKey = "target";
             node.SelectedImageKey = node.ImageKey;
             node.Tag = panel_PageTarget;
             treeViewMain.Nodes.Add(node);
 
             node = new TreeNode();
-            node.Text = "Files";
+            node.Text = "3. Files";
             node.ImageKey = "filescan";
+            node.Tag = panel_PageSource;
             node.SelectedImageKey = node.ImageKey;
-            node.Tag = panel_PageCommands;
             treeViewMain.Nodes.Add(node);
 
             node = new TreeNode();
-            node.Text = "Deploy Sequence";
+            node.Text = "4. Deploy Sequence";
             node.ImageKey = "commands";
             node.SelectedImageKey = node.ImageKey;
             node.Tag = panel_PageCommands;
@@ -111,6 +113,9 @@ namespace Fcop.Forms
             if (targets.Count > selectedIndex) {
                 var tt = targets[selectedIndex].GetType();
 
+                _definition.Target = targets[selectedIndex];
+                (_definition.Target as TargetBase).Properties.Write("Selected", DateTime.UtcNow);
+
                 var cmds = TargetManager.GetCommands(tt);
                 toolStripDropDownButtonAddCommand.DropDownItems.Clear();
 
@@ -145,6 +150,29 @@ namespace Fcop.Forms
             {
                 d.ShowDialog();
             }
+        }
+
+        private void textBoxSourcePath_TextChanged(object sender, EventArgs e)
+        {
+            string path = (sender as TextBox).Text;
+            bool pathIsAlright = false;
+            try
+            {
+                if (System.IO.Directory.Exists(path))
+                    pathIsAlright = true;
+                
+            } catch (Exception ex)
+            {
+
+            }
+            labelSourcePathDoesNotExist.Visible = !pathIsAlright;
+            toolStripButtonSave.Enabled = pathIsAlright;
+            _definition.Source = (sender as TextBox).Text;
+        }
+
+        private void toolStripButtonSave_Click(object sender, EventArgs e)
+        {
+            _definition.Save();
         }
     }
 }

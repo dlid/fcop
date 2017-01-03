@@ -11,7 +11,7 @@ namespace Fcop.Core.Extensions
 {
     public static class StringExtensions
     {
-        public static string Serialize(this object obj)
+        public static string Serialize(this object obj, bool omitXmlDeclaration = false)
         {
 
             if (obj == null)
@@ -24,7 +24,7 @@ namespace Fcop.Core.Extensions
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Encoding = new UnicodeEncoding(false, false); // no BOM in a .NET string
             settings.Indent = false;
-            settings.OmitXmlDeclaration = false;
+            settings.OmitXmlDeclaration = omitXmlDeclaration;
 
             using (StringWriter textWriter = new StringWriter())
             {

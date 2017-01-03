@@ -20,7 +20,10 @@ namespace Fcop
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (var dlg = new Forms.FcopDefinitionEditor(new Core.Entities.FcopDefinition()))
+            var d = new Core.Entities.FcopDefinition();
+            d.Save(@"C:\temp\fcop-test.fcop");
+
+            using (var dlg = new Forms.FcopDefinitionEditor(d))
             {
                 dlg.ShowDialog();
             }
