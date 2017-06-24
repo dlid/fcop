@@ -111,6 +111,15 @@ function Install-Fcop {
         Write-Host ""
         $key = "_"
     }
+
+    
+    $t = Start-FCopTask ("Executing Post-commands")
+
+    foreach($c.PostCommands as $cmd) {
+        Write-Host $cmd.LocalName
+    }
+
+    Complete-FCopTask $t
    
 
     # Here, the FTP connection has been closed. We'll need to open it again later
@@ -180,6 +189,7 @@ if ($key.key -eq "D") {
 
 
     Complete-FCopTask $t
+
 
     if ($success -eq $true) {
         $t = Start-FCopTask ("Saving updated filecache " + $c.fcop._runtime.ResolvedFilecachePath)
